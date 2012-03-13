@@ -225,6 +225,33 @@ static void drawGrid(float w, float h, int numCols=10, int numRows=10) {
     
 }
 
+//--------------------------------------------------------------
+static void ofDraw2DQuad( float x, float y, float width, float height) {
+    glBegin( GL_QUADS );
+    glVertex2f(x, y);
+    glVertex2f(x+width, y);
+    glVertex2f(x+width, y+height);
+    glVertex2f(x, y+height);
+    glEnd();
+}
+
+//--------------------------------------------------------------
+static void ofDraw2DQuad( float x, float y, float width, float height, float tx, float ty, float twidth, float theight) {
+    glBegin( GL_QUADS );
+    glTexCoord2f(tx, ty);
+    glVertex2f(x, y);
+    
+    glTexCoord2f(tx+twidth, ty);
+    glVertex2f(x+width, y);
+    
+    glTexCoord2f(tx+twidth, ty+theight);
+    glVertex2f(x+width, y+height);
+    
+    glTexCoord2f(tx, ty+theight);
+    glVertex2f(x, y+height);
+    glEnd();
+}
+
 
 //--------------------------------------------------------------
 // Mouse / Screen
