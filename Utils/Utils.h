@@ -24,6 +24,11 @@ static void ofSetHexColor(int hexColor, int alpha) {
 	ofSetColor(r,g,b, alpha);
 }
 
+//--------------------------------------------------------------
+static ofColor ofGetRandomColor() {
+    return ofColor( ofRandom(0, 255), ofRandom(0, 255), ofRandom(0, 255) );
+}
+
 static float ofXeno(float val, float target, float amt) {
     return (amt * target) + ((1.0f - amt) * val);
 }
@@ -245,6 +250,13 @@ static string ofTruncate(string &str, int max, bool addDotDotDot=true) {
     }
     return str;
 }
+
+//--------------------------------------------------------------
+static string ofGetUniqueString() {
+    return ofToString(ofGetMonth(), 0)+ofToString(ofGetDay(),0)+ofToString(ofGetYear(),0)+ofToString(ofGetHours(),0)+ofToString(ofGetMinutes(),0)+ofToString(ofGetSeconds(),0);
+}
+
+
 
 //-------------------------------------------------------------- (this may be making a bug)!!!
 static void readDirectory(string path, vector<ofFile>&files, vector<string>allowedExt) {	
