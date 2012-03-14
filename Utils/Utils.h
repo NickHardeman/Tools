@@ -109,6 +109,16 @@ static ofVec2f ofRandomPointInCircle(const ofVec2f &pt, float radius, float padd
     return ofRandomPointInRect(pt.x, pt.y, radius, padding);
 }
 
+static bool ofIsInsideRect( float x, float y, float rx, float ry, float rwidth, float rheight) {
+    return (x > rx) && (x < rx+rwidth) && (y > ry) && (y < ry + rheight);
+}
+static bool ofIsInsideRect( float x, float y, const ofRectangle &r ) {
+    return ofIsInsideRect( x, y, r.x, r.y, r.width, r.height);
+}
+static bool ofIsInsideRect( const ofPoint &p, const ofRectangle &r ) {
+    return ofIsInsideRect( p.x, p.y, r.x, r.y, r.width, r.height);
+}
+
 
 //--------------------------------------------------------------
 // Utils
